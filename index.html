@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee Management System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+ 
+    <style>
+body,html{
+    margin: 0 0;
+    height: 100%;
+    width: 100%;
+    font-family: 'Poppins',sans-serif;
+    background-color: #120127;
+}
+
+.heading{
+    display: flex;
+    border: 4px solid black;
+    height: 14vh;
+    width:  100%;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+}
+h1{
+    font-size: 3vw;
+    color: darkgray;
+}
+.section{
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+
+}
+.right{
+    /* background-color: red; */
+    height: 400px;
+    width: 550px;
+}
+.left{
+    display: flex;
+    background-color: rgb(174, 183, 231);
+    height: 380px;
+    width: 300px;
+    align-items: center;
+}
+
+/*  end for styling format body structure */
+button{
+    font-size: 3vh;
+    color: rgba(255, 255, 255, 0.849);
+    border: 1px solid black;
+    background-color: black;
+    height: 6vh;
+    width: 24vh;
+    border-radius: 1vh;
+    box-shadow: 1px 1px 10px black;
+}
+button:hover{
+    transform: translateY(1px);
+    scale: 1.01;
+}
+/* this is css for insert  */
+.insertform{
+    display: none;
+    border: 4px solid rgb(12, 12, 12);
+    box-shadow: 0 0 1 5px silver;
+    background: rgb(12, 12, 12);
+    height: 90vh;
+    width: 30vw;
+    padding: 10px 10px;
+    /* margin-left: 33vw; */
+    margin-left: 3vw;
+    margin-top: -44vw;
+    filter: opacity(100%);
+    box-shadow: 1px 1px 6px 8px black;
+}
+.insertform1{
+    border: 6px groove rgb(82, 77, 155);
+    color: white;
+    height: 60vh;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 10px;
+    padding: 10px;
+}
+.inserth1{
+    font-size: 4vh;
+    text-align: center;
+    color: silver;
+}
+.endbuttons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 15vh;
+}
+.btn{
+    border: 1px solid white;
+    height: 7.6vh;
+    width: 20vh;
+    border-radius: 2vh;
+    background-color: silver;
+    color: black;
+    font-size: 20px;
+}
+/* this is css for find  */
+.findform{
+    display: none;
+    border: 4px solid transparent;
+    box-shadow: 0 0 1 5px silver;
+    background: rgb(12, 12, 12);
+    height: 90vh;
+    width: 30vw;
+    padding: 10px 10px;
+    margin-left: 3vw;
+    margin-top: -44vw;
+    filter: opacity(100%);
+    box-shadow: 1px 1px 6px 8px black;
+}
+.findform1{
+    border: 6px groove rgb(82, 77, 155);
+    color: white;
+    height: 60vh;
+    padding: 10px;
+}
+.findh1{
+    font-size: 4vh;
+    text-align: center;
+    color: silver;
+}
+.endbuttons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 15vh;
+}
+.btn{
+    border: 1px solid white;
+    height: 7.6vh;
+    width: 20vh;
+    border-radius: 2vh;
+    background-color: silver;
+    color: black;
+    font-size: 20px;
+}
+input{
+    padding: 10px;
+}
+select{
+    padding: 5px;
+}
+/* this is css for find all */
+.findallform{
+    display: none;
+    border: 4px solid transparent;
+    box-shadow: 0 0 1 5px silver;
+    background: rgb(12, 12, 12);
+    height: 90vh;
+    width: 30vw;
+    padding: 10px 10px;
+    margin-left: 3vw;
+    margin-top: -44vw;
+    filter: opacity(100%);
+    box-shadow: 1px 1px 6px 8px black;
+}
+.findallform1{
+    border: 6px groove rgb(82, 77, 155);
+    color: white;
+    height: 60vh;
+    padding: 10px;
+}
+.findallh1{
+    font-size: 4vh;
+    text-align: center;
+    color: silver;
+}
+.endbuttons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 15vh;
+}
+.btn{
+    border: 1px solid white;
+    height: 7.6vh;
+    width: 20vh;
+    border-radius: 2vh;
+    background-color: silver;
+    color: black;
+    font-size: 20px;
+}
+
+/* this is css for update  */
+.updateform{
+    display: none;
+    border: 4px solid transparent;
+    box-shadow: 0 0 1 5px silver;
+    background: rgb(12, 12, 12);
+    height: 90vh;
+    width: 30vw;
+    padding: 10px 10px;
+    margin-left: 3vw;
+    margin-top: -44vw;
+    filter: opacity(100%);
+    box-shadow: 1px 1px 6px 8px black;
+}
+.updateform1{
+    border: 6px groove rgb(82, 77, 155);
+    color: white;
+    height: 60vh;
+    padding: 10px;
+}
+.updateh1{
+    font-size: 4vh;
+    text-align: center;
+    color: silver;
+}
+.endbuttons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 15vh;
+}
+.btn{
+    border: 1px solid white;
+    height: 7.6vh;
+    width: 20vh;
+    border-radius: 2vh;
+    background-color: silver;
+    color: black;
+    font-size: 20px;
+}
+input{
+    padding: 10px;
+}
+select{
+    padding: 5px;
+}
+/* this is for del  */
+
+.deleteform{
+    display: none;
+    border: 4px solid transparent;
+    box-shadow: 0 0 1 5px silver;
+    background: rgb(12, 12, 12);
+    height: 90vh;
+    width: 30vw;
+    padding: 10px 10px;
+    margin-left: 3vw;
+    margin-top: -44vw;
+    filter: opacity(100%);
+    box-shadow: 1px 1px 6px 8px black;
+}
+.deleteform1{
+    border: 6px groove rgb(82, 77, 155);
+    color: white;
+    height: 60vh;
+    padding: 10px;
+}
+.deleteh1{
+    font-size: 4vh;
+    text-align: center;
+    color: silver;
+}
+.endbuttons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 15vh;
+}
+.btn{
+    border: 1px solid white;
+    height: 7.6vh;
+    width: 20vh;
+    border-radius: 2vh;
+    background-color: silver;
+    color: black;
+    font-size: 20px;
+}
+input{
+    padding: 10px;
+}
+select{
+    padding: 5px;
+}
+
+
+    </style>
+  </head>
+  <body>
+
+    <!-- this is main body  -->
+    <div class="heading">
+      <h1>
+        <span style="color: rgba(255, 255, 255, 0.856)">E</span>mployee
+        <span style="color: rgba(255, 255, 255, 0.863)">M</span>anagement
+        <span style="color: rgba(255, 255, 255, 0.836)">S</span>ystem
+      </h1>
+    </div>
+    <main>
+      <section class="section">
+        <div class="left">
+          <ul type="none">
+            <li><button title="click here to insert data" onclick="openForm()">Insert
+        
+            </button></li>
+            <br />
+
+            <li><button title="click here to update data" onclick="openForm1()">Update
+
+            </button></li>
+            <br />
+
+            <li><button title="click here to delete data" onclick="openForm2()">Delete
+
+            </button></li>
+            <br />
+
+            <li><button title="click here to find data" onclick="openForm3()">Find
+                
+            </button></li>
+            <br />
+
+            <li><button title="click here to find all data" onclick="openForm4()">Find All
+
+            </button></li>
+            <br />
+
+            <li><button title="click here to close" onclick="exit()">Close
+
+            </button></li>
+            <br />
+          </ul>
+        </div>
+
+        <div class="right">
+          <img
+            src="https://www.reactjsindia.com/blog/wp-content/uploads/2023/11/Employee-Management-affilate-page-1536x1038-1.png"
+            alt="Employee"
+            style="height: 100%; width: 100%"
+          />
+        </div>
+      </section>
+    </main>
+<!-- this is end of main body  -->
+
+    <!-- this is for insert button form  -->
+
+    <div class="insertform" id="insert">
+      <h1 class="inserth1">Enter Employee Details</h1>
+    <div class="insertform1">
+      <label for="" >Id</label>
+      <input type="number" placeholder="Enter Id" required/>
+    
+      <label for="" >Ename</label>
+      <input type="text" placeholder="Enter Ename" />
+    
+      <label for="">Phno</label>
+      <input type="tel" name="" id="" placeholder="Enter Phone No" />
+    
+      <label for="">Age</label>
+      <input type="number" placeholder="Enter your Age" />
+    
+      <label for="">Sal</label>
+      <input type="number" placeholder="Enter your Salary" />
+    
+      <label for="BloodGroup">Blood Group</label>
+      <input type="text" placeholder="Enter your Blood Group" />
+    </div>
+    <div class="endbuttons">
+      <input type="submit" value="Submit" class="btn">
+      <button class="btn" onclick="closeForm()">Close</button>
+    </div>
+    </div>
+    <!-- this is end of insert  -->
+    
+    <!-- this is for Update -->
+
+    <div class="updateform" id="update">
+      <h1 class="updateh1">Update Employee Details</h1>
+      <div class="updateform1">
+        <br />
+        <label for="">Please Select the <b>Data</b> you want to <b>Update</b></label>
+        <br /> <br />
+        <select name="State" id="State">
+          <option value="Id">Id</option>
+          <option value="Ename" selected>Ename</option>
+          <option value="Phno">Phno</option>
+          <option value="age">Age</option>
+          <option value="Sal">Sal</option>
+          <option value="BloodGroup">Blood Group</option>
+        </select>
+        <br /><br />
+        <label for="">Please Enter the <b>New Data</b></label>
+        <br /><br />
+        <input type="text" />
+      </div>
+      <div class="endbuttons">
+        <input type="submit" value="Submit" class="btn" />
+        <button class="btn" onclick="closeForm1()">Close</button>
+      </div>
+    </div>
+    <!-- update ends here  -->
+
+<!-- this is for delete  -->
+    <div class="deleteform" id="delete">
+      <h1 class="deleteh1">Delete Employee Details</h1>
+      <div class="deleteform1">
+        <br />
+        <label for="">Please Select the <b>Data</b> you want to <b>Delete</b></label>
+        <br /> <br />
+        <select name="State" id="State">
+          <option value="Id">Id</option>
+          <option value="Ename" selected>Ename</option>
+          <option value="Phno">Phno</option>
+          <option value="age">Age</option>
+          <option value="Sal">Sal</option>
+          <option value="BloodGroup">Blood Group</option>
+        </select>
+        <br /><br />
+        <label for="">Please Enter the <b>Data</b> to be <b>Deleted</b></label>
+        <br /><br />
+        <input type="text" />
+      </div>
+      <div class="endbuttons">
+        <input type="submit" value="Submit" class="btn" />
+        <button class="btn" onclick="closeForm2()">Close</button>
+      </div>
+    </div>
+
+    <!-- delete ends  -->
+<!-- find starts -->
+<div class="findform" id="find">
+  <h1 class="findh1">Find Employee Details</h1>
+  <div class="findform1">
+    <br />
+    <label for="">Please Select the <b>Data</b> you want to <b>Find</b></label>
+    <br /> <br />
+    <select name="State" id="State">
+      <option value="Id">Id</option>
+      <option value="Ename" selected>Ename</option>
+      <option value="Phno">Phno</option>
+      <option value="age">Age</option>
+      <option value="Sal">Sal</option>
+      <option value="BloodGroup">Blood Group</option>
+    </select>
+    <br /><br />
+    <label for="">Please Enter the <b>Data</b> to be <b>Found</b></label>
+    <br /><br />
+    <input type="text" />
+  </div>
+  <div class="endbuttons">
+    <input type="submit" value="Submit" class="btn" />
+    <button class="btn" onclick="closeForm3()">Close</button>
+  </div>
+</div>
+<!-- find ends  -->
+
+<!-- findall here -->
+<div class="findallform" id="findall">
+  <h1 class="findallh1">Find ALL Employee Details</h1>
+  <div class="findallform1">
+    <br />
+    <label for="">Please Select the <b>Data</b> you want to <b>Find</b></label>
+    <br /> <br />
+    <select name="State" id="State">
+      <option value="All" selected>All</option>
+      <option value="Id">Id</option>
+      <option value="Ename" >Ename</option>
+      <option value="Phno">Phno</option>
+      <option value="age">Age</option>
+      <option value="Sal">Sal</option>
+      <option value="BloodGroup">Blood Group</option>
+    </select>
+    <br /><br />
+    <label for="">Please Enter the <b>Data</b> to be <b>Find</b></label>
+    <br /><br />
+    <input type="text" />
+    <h3>You can fetch all data for any item</h3>
+  </div>
+  <div class="endbuttons">
+    <input type="submit" value="Submit" class="btn" />
+    <button class="btn" onclick="closeForm4()">Close</button>
+  </div>
+</div>
+<!-- finall end  -->
+
+<script src=""></script>
+    <script>
+      // function for insert
+function openForm() {
+    document.getElementById("insert").style.display = "block";
+  }
+  
+  function closeForm() {
+    document.getElementById("insert").style.display = "none";
+  }
+  //end of insert
+
+//   function for update
+function openForm1() {
+    document.getElementById("update").style.display = "block";
+  }
+  
+  function closeForm1() {
+    document.getElementById("update").style.display = "none";
+  }
+
+  //for delete
+
+  function openForm2() {
+    document.getElementById("delete").style.display = "block";
+  }
+  
+  function closeForm2() {
+    document.getElementById("delete").style.display = "none";
+  }
+  //for find
+  function openForm3() {
+    document.getElementById("find").style.display = "block";
+  }
+  
+  function closeForm3() {
+    document.getElementById("find").style.display = "none";
+  }
+
+  //for find
+  function openForm4() {
+    document.getElementById("findall").style.display = "block";
+  }
+  
+  function closeForm4() {
+    document.getElementById("findall").style.display = "none";
+  }
+
+  function exit(){
+    // document.querySelector('html').style.opacity="0";
+    window.close();
+  }
+    </script>
+  </body>
+</html>
